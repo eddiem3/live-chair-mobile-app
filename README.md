@@ -1,2 +1,0 @@
-live-chair-mobile-app
-=====================
