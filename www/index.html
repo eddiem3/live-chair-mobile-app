@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
   <link rel="stylesheet" href="styles/app.css"/>
   <link rel="stylesheet" href="styles/onsen-css-components.css">  
-
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">  
+  
   <script src="lib/onsen/js/angular/angular.js"></script>    
   <script src="lib/onsen/js/onsenui.js"></script>    
-  
+
   <!--<script src="cordova.js"></script>  -->
   <script src="js/app.js"></script>  
   <script>
@@ -77,11 +78,9 @@
             <ons-col>
               <header>
                 <span class="item-title">{{item.fname + " " + item.lname}}</span>
-		<span class="item-stars" ng-repeat="x in getTimes(item.rating) track by $index">*</span>
-
-		<!--<div class="item-stars">
-		  <li ng-repeat="x in getTimes(item.rating) track by $index">*</li>		  
-		</div>->-->
+		<div class="item-stars">
+		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
+		</div>
               </header>
               <p class="item-shop">{{item.shop_name}}</p>
             </ons-col>
