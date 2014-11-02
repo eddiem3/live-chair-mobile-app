@@ -54,7 +54,7 @@
      font-size: 12px;
      color: #ccc;
      text-align: center;
-    
+    display:inline-block;
     }
 
   </style>
@@ -77,10 +77,11 @@
             <ons-col>
               <header>
                 <span class="item-title">{{item.fname + " " + item.lname}}</span>
+		<span class="item-stars" ng-repeat="x in getTimes(item.rating) track by $index">*</span>
 
-		<div class="item-stars">
-		  <p ng-repeat="x in getTimes(item.rating) track by $index">*</p>		  
-		</div>
+		<!--<div class="item-stars">
+		  <li ng-repeat="x in getTimes(item.rating) track by $index">*</li>		  
+		</div>->-->
               </header>
               <p class="item-shop">{{item.shop_name}}</p>
             </ons-col>
