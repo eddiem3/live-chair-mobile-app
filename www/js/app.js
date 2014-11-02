@@ -1,13 +1,18 @@
 (function(){
-  'use strict';
-  var module = angular.module('app', ['onsen']);
+    'use strict';
+    var module = angular.module('app', ['onsen']);
 
-  module.controller('AppController', function($scope, $data) {
-    $scope.doSomething = function() {
-      setTimeout(function() {
-        alert('tappaed');
+    module.controller('AppController', function($scope, $data) {
+      $scope.doSomething = function() {
+	setTimeout(function() {
+          alert('tappaed');
       }, 100);
     };
+	
+	$scope.getTimes=function(n){
+	    return new Array(parseInt(n));
+	};  
+
   });
 
   module.controller('DetailController', function($scope, $data) {
