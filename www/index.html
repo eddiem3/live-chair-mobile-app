@@ -84,7 +84,6 @@
             <ons-col>
               <header>
                 <span class="item-title">{{item.fname + " " + item.lname}}</span>
-		
 		<div class="item-stars">
 		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
 		</div>
@@ -102,7 +101,7 @@
 
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
-        <div class="center">Details</div>
+        <div class="center">{{item.fname + " " + item.lname}}</div>
       </ons-toolbar>
 
       <ons-list modifier="inset" style="margin-top: 10px">
@@ -113,8 +112,20 @@
             </ons-col>
             <ons-col>
               <header>
-                <span class="item-title">{{item.fname + " " + item.lname}}</span>
-                <span class="item-label">{{item.label}}</span>
+                <span class="item-title"><h1>{{item.fname + " " + item.lname}}</h1></span>
+		
+		<div class="item-stars">
+		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
+		</div>
+		<br>
+
+				
+		
+		
+		<!--<span class="item-shop">{{item.shop_name}}</span>-->
+		
+				
+		
               </header>
               <p class="item-desc">{{item.desc}}</p>
             </ons-col>
@@ -123,20 +134,40 @@
       
       
 	<ons-list-item modifier="chevron" ng-click="doSomething()">
+	  <ons-icon icon="fa fa-calendar" fixed-width="true" style="color: #ccc"></ons-icon>
+          Schedule an appointment
+	</ons-list-item>
+
+	<ons-list-item modifier="chevron" ng-click="doSomething()">
+	  <ons-icon icon="fa fa-map-marker" fixed-width="true" style="color: #ccc"></ons-icon>
+          Find Shop
+	</ons-list-item>
+	
+	<ons-list-item modifier="chevron" ng-click="doSomething()">
           <ons-icon icon="ion-chatboxes" fixed-width="true" style="color: #ccc"></ons-icon>
           Add a review
 	</ons-list-item>
-      </ons-list>
-      
 
+
+	<h4>Reviews</h4>
       <ons-list-item class="item" ng-repeat="review in item.reviews">
           <!--<header>
             <span class="item-title">{{review.body}}</span>
           </header>-->
-          <p class="item-desc">{{review.body}}</p>
-	    <div class="item-stars">
-	      <i class="fa fa-star" ng-repeat=" star in getTimes(review.stars) track by $index"></i>
-	    </div>
+
+	   <blockquote>
+             <strong>{{review.body}}</strong>
+	     <br>
+	     <div class="item-stars">
+	       <i class="fa fa-star" ng-repeat=" star in getTimes(review.stars) track by $index"></i>
+	     </div>
+	     <br>
+	     <cite class="clearfix">—{{review.author}}</cite>
+           </blockquote>
+
+
+          <!--<p class="item-desc">{{review.body}}</p>
+
         </ons-list-item>
       </ons-list>
 
