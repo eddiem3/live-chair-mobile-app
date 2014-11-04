@@ -28,11 +28,17 @@
       line-height: 1;
     }
     .item-thum {
-      background-color: #ccc;
+    background-color: #ccc;
       width: 50px;
       height: 50px;
       border-radius: 4px;
     }
+
+    .item-thum .img {
+      width: 50px;
+      height: 50px;
+    }
+
     .item-title {
       font-size: 15px;
       font-weight: 500;
@@ -66,18 +72,19 @@
   <ons-navigator>
     <ons-page>
       <ons-toolbar>
-        <div class="center">Barber</div>
+        <div class="center">Barbers</div>
       </ons-toolbar>
 
       <ons-list ng-controller="MasterController">
         <ons-list-item modifier="chevron" class="item" ng-repeat="item in items" ng-click="showDetail($index)">
           <ons-row>
             <ons-col width="60px"> 
-              <div class="item-thum"></div>
+              <div class="item-thum"><img ng-src="{{item.avatar}}"/></div>
             </ons-col>
             <ons-col>
               <header>
                 <span class="item-title">{{item.fname + " " + item.lname}}</span>
+		
 		<div class="item-stars">
 		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
 		</div>
@@ -106,26 +113,30 @@
             </ons-col>
             <ons-col>
               <header>
-                <span class="item-title">{{item.title}}</span>
+                <span class="item-title">{{item.fname + " " + item.lname}}</span>
                 <span class="item-label">{{item.label}}</span>
               </header>
               <p class="item-desc">{{item.desc}}</p>
             </ons-col>
           </ons-row>
         </ons-list-item>
-
-        <ons-list-item modifier="chevron" ng-click="doSomething()">
+      
+      
+	<ons-list-item modifier="chevron" ng-click="doSomething()">
           <ons-icon icon="ion-chatboxes" fixed-width="true" style="color: #ccc"></ons-icon>
-          Add a note
-        </ons-list-item>
+          Add a review
+	</ons-list-item>
       </ons-list>
+      
 
-      <ons-list style="margin-top: 10px">
-        <ons-list-item class="item" ng-repeat="i in [1,2,3]">
-          <header>
-            <span class="item-title">Lorem ipsum dolor sit amet</span>
-          </header>
-          <p class="item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ons-list-item class="item" ng-repeat="review in item.reviews">
+          <!--<header>
+            <span class="item-title">{{review.body}}</span>
+          </header>-->
+          <p class="item-desc">{{review.body}}</p>
+	    <div class="item-stars">
+	      <i class="fa fa-star" ng-repeat=" star in getTimes(review.stars) track by $index"></i>
+	    </div>
         </ons-list-item>
       </ons-list>
 
