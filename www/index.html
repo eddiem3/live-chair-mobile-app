@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
   <link rel="stylesheet" href="styles/app.css"/>
   <link rel="stylesheet" href="styles/onsen-css-components.css">  
-
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">  
+  
   <script src="lib/onsen/js/angular/angular.js"></script>    
   <script src="lib/onsen/js/onsenui.js"></script>    
-  
+
   <!--<script src="cordova.js"></script>  -->
   <script src="js/app.js"></script>  
   <script>
@@ -27,17 +28,23 @@
       line-height: 1;
     }
     .item-thum {
-      background-color: #ccc;
+    background-color: #ccc;
       width: 50px;
       height: 50px;
       border-radius: 4px;
     }
+
+    .item-thum .img {
+      width: 50px;
+      height: 50px;
+    }
+
     .item-title {
       font-size: 15px;
       font-weight: 500;
     }
 
-    .item-desc {
+    .item-shop {
       font-size: 14px;
       color: #666;
       line-height: 1.3;
@@ -49,6 +56,13 @@
       color: #999;
       float: right;
     }
+    
+    .item-stars{
+     font-size: 12px;
+     color: #ccc;
+     text-align: center;
+    display:inline-block;
+    }
 
   </style>
 </head>
@@ -58,21 +72,23 @@
   <ons-navigator>
     <ons-page>
       <ons-toolbar>
-        <div class="center">Barber</div>
+        <div class="center">Barbers</div>
       </ons-toolbar>
 
       <ons-list ng-controller="MasterController">
         <ons-list-item modifier="chevron" class="item" ng-repeat="item in items" ng-click="showDetail($index)">
           <ons-row>
             <ons-col width="60px"> 
-              <div class="item-thum"></div>
+              <div class="item-thum"><img ng-src="{{item.avatar}}"/></div>
             </ons-col>
             <ons-col>
               <header>
-                <span class="item-title">{{item.fname + item.lname}}</span>
-		<span class="item-label">{{item.shop_name}}</span>
+                <span class="item-title">{{item.fname + " " + item.lname}}</span>
+		<div class="item-stars">
+		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
+		</div>
               </header>
-              <p class="item-desc">{{item.zip}}</p>
+              <p class="item-shop">{{item.shop_name}}</p>
             </ons-col>
           </ons-row>                          
         </ons-list-item>
@@ -85,7 +101,7 @@
 
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
-        <div class="center">Details</div>
+        <div class="center">{{item.fname + " " + item.lname}}</div>
       </ons-toolbar>
 
       <ons-list modifier="inset" style="margin-top: 10px">
@@ -96,29 +112,62 @@
             </ons-col>
             <ons-col>
               <header>
-                <span class="item-title">{{item.title}}</span>
-                <span class="item-label">{{item.label}}</span>
-		<span class="item-stars" ng-repeat=" x in {{item.stars}}">
-		  s
-		</span>
+                <span class="item-title"><h1>{{item.fname + " " + item.lname}}</h1></span>
+		
+		<div class="item-stars">
+		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
+		</div>
+		<br>
+
+				
+		
+		
+		<!--<span class="item-shop">{{item.shop_name}}</span>-->
+		
+				
+		
               </header>
               <p class="item-desc">{{item.desc}}</p>
             </ons-col>
           </ons-row>
         </ons-list-item>
+      
+      
+	<ons-list-item modifier="chevron" ng-click="doSomething()">
+	  <ons-icon icon="fa fa-calendar" fixed-width="true" style="color: #ccc"></ons-icon>
+          Schedule an appointment
+	</ons-list-item>
 
-        <ons-list-item modifier="chevron" ng-click="doSomething()">
+	<ons-list-item modifier="chevron" ng-click="doSomething()">
+	  <ons-icon icon="fa fa-map-marker" fixed-width="true" style="color: #ccc"></ons-icon>
+          Find Shop
+	</ons-list-item>
+	
+	<ons-list-item modifier="chevron" ng-click="doSomething()">
           <ons-icon icon="ion-chatboxes" fixed-width="true" style="color: #ccc"></ons-icon>
-          Add a note
-        </ons-list-item>
-      </ons-list>
+          Add a review
+	</ons-list-item>
 
-      <ons-list style="margin-top: 10px">
-        <ons-list-item class="item" ng-repeat="i in [1,2,3]">
-          <header>
-            <span class="item-title">Lorem ipsum dolor sit amet</span>
-          </header>
-          <p class="item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+	<h4>Reviews</h4>
+      <ons-list-item class="item" ng-repeat="review in item.reviews">
+          <!--<header>
+            <span class="item-title">{{review.body}}</span>
+          </header>-->
+
+	   <blockquote>
+             <strong>{{review.body}}</strong>
+	     <br>
+	     <div class="item-stars">
+	       <i class="fa fa-star" ng-repeat=" star in getTimes(review.stars) track by $index"></i>
+	     </div>
+	     <br>
+	     <cite class="clearfix">—{{review.author}}</cite>
+           </blockquote>
+
+
+          <!--<p class="item-desc">{{review.body}}</p>
+
         </ons-list-item>
       </ons-list>
 
