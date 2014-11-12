@@ -3,13 +3,20 @@
     var module = angular.module('app', ['onsen']);
     
     module.controller('AppController', function($scope, $data) {
+	$scope.showForm = false; //form for showing review controller
+
+
 	$scope.doSomething = function() {
 	    setTimeout(function() {
 		alert('tappaed');
 	    }, 100);
 	};
+
 	
-	
+	$scope.showReviewForm = function() {
+	    $scope.showForm = !$scope.showForm;
+	    
+	};
 
 	
 	$scope.getTimes=function(n){
@@ -32,6 +39,15 @@
     };
   });
 
+  module.controller('ReviewController', function($scope, $data) {
+  	$scope.review = {}
+
+  	$scope.addReview = function(barber) {
+  		barber.reviews.push($scope.review);
+  		$scope.review = {}
+  	};
+  });
+
   module.factory('$data', function() {
       var data = {};
       
@@ -46,7 +62,6 @@
 	      state:'SC',
 	      zip: '29115',
 	      rating: '3',
-
 	      reviews: [{
 		  stars: 1,
 		  body: "This gem is WAY too expensive for its rarity value.",

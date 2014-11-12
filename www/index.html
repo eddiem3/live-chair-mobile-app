@@ -143,38 +143,55 @@
           Find Shop
 	</ons-list-item>
 	
-	<ons-list-item modifier="chevron" ng-click="doSomething()">
+	<ons-list-item modifier="chevron" ng-click="showReviewForm()">
           <ons-icon icon="ion-chatboxes" fixed-width="true" style="color: #ccc"></ons-icon>
           Add a review
 	</ons-list-item>
 
 
 	<h4>Reviews</h4>
-      <ons-list-item class="item" ng-repeat="review in item.reviews">
+	<!-- Form to submit review -->
+	<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview()" ng-hide="!showForm">
+	  <fieldset class="form-group">
+            <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+          </fieldset>
+          <fieldset class="form-group">
+            <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+          </fieldset>
+	</form>
+	
+	
+
+
+
+	<ons-list-item class="item" ng-repeat="review in item.reviews">
           <!--<header>
-            <span class="item-title">{{review.body}}</span>
+              <span class="item-title">{{review.body}}</span>
           </header>-->
 
-	   <blockquote>
-             <strong>{{review.body}}</strong>
-	     <br>
-	     <div class="item-stars">
-	       <i class="fa fa-star" ng-repeat=" star in getTimes(review.stars) track by $index"></i>
-	     </div>
-	     <br>
-	     <cite class="clearfix">—{{review.author}}</cite>
-           </blockquote>
-
-
-          <!--<p class="item-desc">{{review.body}}</p>
-
-        </ons-list-item>
+	  <blockquote>
+            <strong>{{review.body}}</strong>
+	    <br>
+	    <div class="item-stars">
+	      <i class="fa fa-star" ng-repeat=" star in getTimes(review.stars) track by $index"></i>
+	    </div>
+	    <br>
+	    <cite class="clearfix">—{{review.author}}</cite>
+          </blockquote>
+	  
+	  
+          <!--<p class="item-desc">{{review.body}}</p>-->
+	  
+	</ons-list-item>
       </ons-list>
-
+      
       <br>
-
+      
     </ons-page>
   </ons-template>
-
+  
 </body>  
 </html>
