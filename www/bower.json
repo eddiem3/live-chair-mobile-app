@@ -1,0 +1,24 @@
+{
+  "name": "live-chair-mobile-app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eddiem3/live-chair-mobile-app",
+  "authors": [
+    "Eddie Massey III <eem33@case.edu>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],  
+  "dependencies": {
+    "angular-bootstrap-datetimepicker": "latest"
+  },
+
+  "resolutions":{
+   "jquery": "latest"
+   }    
+}
+	

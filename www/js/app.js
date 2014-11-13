@@ -1,10 +1,10 @@
 (function(){
     'use strict';
-    var module = angular.module('app', ['onsen']);
+    var module = angular.module('app', ['onsen', 'ui.bootstrap.datetimepicker']);
     
     module.controller('AppController', function($scope, $data) {
 	$scope.showForm = false; //show form for adding a review 
-	$scope.showAppointment = false; //show form for adding an appointment
+
 
 
 	$scope.doSomething = function() {
@@ -18,14 +18,6 @@
 	    
 	};
 
-	$scope.showCalendar = function() {
-	    jQuery('#picker').datetimepicker({
-		format:'d.m.Y H:i',
-		inline:true,
-		lang:'ru'
-	    });
-	};
-
 	
 	$scope.getTimes=function(n){
 	    return new Array(parseInt(n));
@@ -34,7 +26,14 @@
 
   module.controller('DetailController', function($scope, $data) {
     $scope.item = $data.selectedItem;
+      //alert($scope.item.fname)
+
+      $scope.makeAppointment = function() {
+	  $scope.ons.navigator.pushPage('appointment.html');	  
+      };
   });
+
+		    
 
   module.controller('MasterController', function($scope, $data) {
     $scope.items = $data.items;  
@@ -58,21 +57,6 @@
 
     module.controller('AppointmentController', function($scope, $data) {
 
-	//get current barber
-	$scope.barber = $data.selectedItem;
-
-	//init blank appointment object
-	$scope.appointment = {};
-	
-	//adds an appointment
-	$scope.addAppointment = function() {
-
-	    //update appt array by pushing user selected appointment
-	    $scope.barber.appointments.push($scope.appointment);
-	};
-	
-	//clear local appointment array so the user can add another one if they choose so
-	$scope.appointment = {};
 
     });
 
