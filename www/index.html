@@ -6,13 +6,25 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <title>My App</title>  
+
+
+
   
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
+  <!--<script type="text/javascript" src="bower_components/jquery-ui/ui/jquery.ui.datepicker.js"></script>-->
+
+  <script src="lib/datetimepicker/jquery.datetimepicker.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="lib/datetimepicker/jquery.datetimepicker.css"/ >
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
   <link rel="stylesheet" href="styles/app.css"/>
   <link rel="stylesheet" href="styles/onsen-css-components.css">  
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">  
+<!--  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">  -->
   
-  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <!--<script src="lib/onsen/js/angular/angular.js"></script>    -->
   <script src="lib/onsen/js/onsenui.js"></script>    
 
   <!--<script src="cordova.js"></script>  -->
@@ -22,6 +34,10 @@
     });
   </script>
 
+  <script>
+    
+  </script>
+  
   <style>
     .item {
       padding: 10px;
@@ -98,7 +114,7 @@
 
   <ons-template id="detail.html">
     <ons-page ng-controller="DetailController">
-
+      
       <ons-toolbar>
         <div class="left"><ons-back-button>Back</ons-back-button></div>
         <div class="center">{{item.fname + " " + item.lname}}</div>
@@ -117,23 +133,15 @@
 		<div class="item-stars">
 		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
 		</div>
-		<br>
-
-				
-		
-		
-		<!--<span class="item-shop">{{item.shop_name}}</span>-->
-		
-				
-		
-              </header>
+		<br>	
+	      </header>
               <p class="item-desc">{{item.desc}}</p>
             </ons-col>
           </ons-row>
         </ons-list-item>
       
       
-	<ons-list-item modifier="chevron" ng-click="doSomething()">
+	<ons-list-item modifier="chevron" ng-click="showCalendar()">
 	  <ons-icon icon="fa fa-calendar" fixed-width="true" style="color: #ccc"></ons-icon>
           Schedule an appointment
 	</ons-list-item>
@@ -148,25 +156,24 @@
           Add a review
 	</ons-list-item>
 
-
+	<div id="picker"></div>
+	
 	<h4>Reviews</h4>
 	<!-- Form to submit review -->
-	<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview()" ng-hide="!showForm">
+	<form name="reviewForm" ng-controller="ReviewController" ng-submit="addReview()" ng-hide="!showForm">
 	  <fieldset class="form-group">
-            <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+            <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+	    
+	    <input ng-model="review.stars" type="text" class="form-control" value="5" placeholder="5" title="Stars" />
           </fieldset>
           <fieldset class="form-group">
-            <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+            <input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
           </fieldset>
           <fieldset class="form-group">
             <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
           </fieldset>
 	</form>
-	
-	
-
-
-
+		
 	<ons-list-item class="item" ng-repeat="review in item.reviews">
           <!--<header>
               <span class="item-title">{{review.body}}</span>
@@ -186,12 +193,13 @@
           <!--<p class="item-desc">{{review.body}}</p>-->
 	  
 	</ons-list-item>
-      </ons-list>
-      
-      <br>
-      
+      </ons-list>      
+      <br>      
     </ons-page>
   </ons-template>
+
+
+  
   
 </body>  
 </html>

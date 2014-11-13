@@ -3,7 +3,8 @@
     var module = angular.module('app', ['onsen']);
     
     module.controller('AppController', function($scope, $data) {
-	$scope.showForm = false; //form for showing review controller
+	$scope.showForm = false; //show form for adding a review 
+	$scope.showAppointment = false; //show form for adding an appointment
 
 
 	$scope.doSomething = function() {
@@ -11,18 +12,24 @@
 		alert('tappaed');
 	    }, 100);
 	};
-
 	
 	$scope.showReviewForm = function() {
 	    $scope.showForm = !$scope.showForm;
 	    
 	};
 
+	$scope.showCalendar = function() {
+	    jQuery('#picker').datetimepicker({
+		format:'d.m.Y H:i',
+		inline:true,
+		lang:'ru'
+	    });
+	};
+
 	
 	$scope.getTimes=function(n){
 	    return new Array(parseInt(n));
 	};  
-
   });
 
   module.controller('DetailController', function($scope, $data) {
@@ -40,13 +47,34 @@
   });
 
   module.controller('ReviewController', function($scope, $data) {
-  	$scope.review = {}
+      $scope.barber = $data.selectedItem;
+      $scope.review = {};
 
-  	$scope.addReview = function(barber) {
-  		barber.reviews.push($scope.review);
-  		$scope.review = {}
-  	};
+      $scope.addReview = function() {
+	  $scope.barber.reviews.push($scope.review);
+  	  $scope.review = {};
+      };     
   });
+
+    module.controller('AppointmentController', function($scope, $data) {
+
+	//get current barber
+	$scope.barber = $data.selectedItem;
+
+	//init blank appointment object
+	$scope.appointment = {};
+	
+	//adds an appointment
+	$scope.addAppointment = function() {
+
+	    //update appt array by pushing user selected appointment
+	    $scope.barber.appointments.push($scope.appointment);
+	};
+	
+	//clear local appointment array so the user can add another one if they choose so
+	$scope.appointment = {};
+
+    });
 
   module.factory('$data', function() {
       var data = {};
@@ -54,7 +82,7 @@
       data.items = [
           { 
               fname: 'John',
-              lname: 'Doe',
+              lname: 'Boe',
 	      avatar: '../img/barber1.jpg',
               shop_name: 'Doe Cutz',
 	      address: '123 Street Ave.',
@@ -78,9 +106,13 @@
 		     body: "Don't waste your rubles!",
 		     author: "nat@example.org",
 		     createdOn: 1397490980837
-		 }]	      
-          },
+		 }],
 
+	      available: [
+		  {date: "14-11-13", time: "1400"}
+	      ],	      
+          },
+	  
           { 
 	      fname: 'John',
               lname: 'Doe',
@@ -114,7 +146,7 @@
 
           { 
 	      fname: 'John',
-              lname: 'Doe',
+              lname: 'Foe',
 	      avatar: '../img/barber3.jpg',
               shop_name: 'True',
 	      address: '123 Street Ave.',
