@@ -46,12 +46,14 @@
     .item {
       padding: 10px;
       line-height: 1;
+      background-color: #3914AF;
     }
+
     .item-thum {
     background-color: #ccc;
-      width: 50px;
-      height: 50px;
-      border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
     }
 
     .item-thum .img {
@@ -62,15 +64,17 @@
     .item-title {
       font-size: 15px;
       font-weight: 500;
+    padding: 20px;
     }
 
     .item-shop {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.3;
-      margin: 4px 0 0 0;
-      padding: 0 30px 0 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.3; 
+    margin: 4px 0 0 0;
+    padding: 20px;
     }
+    
     .item-label {
       font-size: 12px;
       color: #999;
@@ -83,6 +87,78 @@
      text-align: center;
     display:inline-block;
     }
+
+    
+.profile-card {
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 30px 0;
+  line-height: 1.4;
+  background-color: #3914AF;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+.profile-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: black;
+  border 1px solid white;
+  box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+}
+
+.profile-thumb {
+  height: 10%;
+  width: auto;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: black;
+  border 1px solid white;
+  box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+}
+
+.profile-name {
+  margin: 20px 0 0 0;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.profile-id {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.profile-desc {
+  font-size: 15px;
+  opacity: 0.6;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.info-col {
+  height: 60px;
+  line-height: 1;
+  padding: 12px 0 12px 4px;
+}
+
+.info-num {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.info-unit {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.4;
+}
+
 
   </style>
 </head>
@@ -101,7 +177,7 @@
         <ons-list-item modifier="chevron" class="item" ng-repeat="item in items" ng-click="showDetail($index)">
           <ons-row>
             <ons-col width="60px"> 
-              <div class="item-thum"><img ng-src="{{item.avatar}}"/></div>
+              <div class="item-thumb"><img ng-src="{{item.thumb}}"/></div>
             </ons-col>
             <ons-col>
               <header>
@@ -126,25 +202,18 @@
         <div class="center">{{item.fname + " " + item.lname}}</div>
       </ons-toolbar>
 
-      <ons-list modifier="inset" style="margin-top: 10px">
-        <ons-list-item class="item">
-          <ons-row>
-            <ons-col width="60px"> 
-              <div class="item-thum"></div>
-            </ons-col>
-            <ons-col>
-              <header>
-                <span class="item-title"><h1>{{item.fname + " " + item.lname}}</h1></span>
-		
-		<div class="item-stars">
-		  <i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index"></i>
-		</div>
-		<br>	
-	      </header>
-              <p class="item-desc">{{item.desc}}</p>
-            </ons-col>
-          </ons-row>
-        </ons-list-item>
+
+      <div class="profile-card">
+	
+	
+	<img ng-src="{{item.avatar}}" class="profile-image"/>
+        <div class="profile-name">{{item.fname + " " + item.lname}}</div>
+	<i class="fa fa-star" ng-repeat="x in getTimes(item.rating) track by $index" style="color:gold"></i>
+        <div class="profile-id">{{"@" +item.fname}}</div>
+        <div class="profile-desc">{{item.shop_name}}</div>
+
+	
+      </div>
       
       
 	<ons-list-item modifier="chevron" ng-click="showAppointments($index)">

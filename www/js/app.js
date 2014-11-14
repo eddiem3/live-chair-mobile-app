@@ -112,7 +112,8 @@
           { 
               fname: 'John',
               lname: 'Boe',
-	      avatar: '../img/barber1.jpg',
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+	      avatar:'../img/barber1.jpg',
               shop_name: 'Doe Cutz',
 	      address: '123 Street Ave.',
 	      city: 'Orangeburg',
