@@ -220,8 +220,10 @@
       <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate, oldDate)">
       </datetimepicker>
       
-      <button ng-repeat="option in options track by $index">{{option.time}}</button>
+      <button ng-repeat="option in options track by $index" ng-click="showCutz()">{{option.time}}</button>
       <p ng-show="!options.length">No available appointments for this day</p>
+      <li ng-repeat="cut in cutz" ng-show="displayCutz">{{cut.name}}</li>
+
     </ons-page>
   </ons-template>
 

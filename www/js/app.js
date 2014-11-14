@@ -60,8 +60,10 @@
 	$scope.barber = $data.selectedItem; //curent barber
 	//$scope.options = []; //options for appointments
 	//$scope.day = "";
-	
+	$scope.cutz = $scope.barber.cutz
+	$scope.displayCutz = false;
 	$scope.onTimeSet = function(currentDate, previousDate) {
+	    
 	    
 	    $scope.options = [];
 
@@ -82,13 +84,10 @@
 		    $scope.options.push({time:$scope.barber.available[i].time});
 		}
 	    }
+	};
 
-
-
-	    for(var j = 0; j < $scope.options.length; j++)
-	    {
-		console.log($scope.options[j]);
-	    }
+	$scope.showCutz = function() {
+	    $scope.displayCutz = true;
 	};
     });
 
@@ -129,7 +128,13 @@
 		  {date: "14-11-13", time: "1300"},
 		  {date: "14-11-13", time: "1400"},
 		  {date: "14-11-13", time: "1500"}
-	      ],	      
+	      ],	   
+	      cutz: [
+		  {name:"Tap Up", price:"5000"},
+		  {name:"Normal Cut", price:"1500"},
+		  {name:"Fade", price:"1000"},
+		  {name:"Eye Brows", price:"500"}
+	      ],
           },
 	  
           { 
