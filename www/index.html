@@ -222,11 +222,9 @@
 
       <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate)">
       </datetimepicker>
-      <p>Selected Date: {{ day.date | date:'yyyy-MM-dd' }}</p>
-      <p>Selected Date: {{ day.date}}</p>
       
-      <ons-button ng-repeat="option in options">{{option.time}}</ons-button>
-      
+      <button ng-repeat="option in options track by $index">{{option.time}}</button>
+      <p ng-show="!options.length">No available appointments for this day</p>
     </ons-page>
   </ons-template>
 

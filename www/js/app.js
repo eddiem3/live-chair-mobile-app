@@ -75,9 +75,16 @@
 		if ($scope.barber.available[i].date === day)
 		{
 		    //alert('Im here');
-		    $scope.options.push($scope.barber.available[i]);
-		    //alert($scope.options.length);
+		    $scope.options.push({time:$scope.barber.available[i].time});
+		    //alert(options);
 		}
+	    }
+
+	    //console.log($scope.options);
+
+	    for(var j = 0; j < $scope.options.length; j++)
+	    {
+		console.log($scope.options[j]);
 	    }
 	    
 	};
@@ -116,7 +123,10 @@
 		 }],
 
 	      available: [
-		  {date: "14-11-13", time: "1400"}
+		  {date: "14-11-13", time: "1200"},
+		  {date: "14-11-13", time: "1300"},
+		  {date: "14-11-13", time: "1400"},
+		  {date: "14-11-13", time: "1500"}
 	      ],	      
           },
 	  
