@@ -107,114 +107,263 @@
 
   module.factory('$data', function() {
       var data = {};
-      
       data.items = [
           { 
-              fname: 'John',
-              lname: 'Boe',
-	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
-	      avatar:'../img/barber1.jpg',
-              shop_name: 'Doe Cutz',
-	      address: '123 Street Ave.',
-	      city: 'Orangeburg',
-	      state:'SC',
-	      zip: '29115',
-	      rating: '3',
-	      reviews: [{
-		  stars: 1,
-		  body: "This gem is WAY too expensive for its rarity value.",
-		  author: "turtleguyy@example.org",
-		  createdOn: 1397490980837
-	      },
-		 {
-		     stars: 1,
-		     body: "BBW: High Shine != High Quality.",
-		     author: "LouisW407@example.org",
-		     createdOn: 1397490980837
-		 }, {
-		     stars: 1,
-		     body: "Don't waste your rubles!",
-		     author: "nat@example.org",
-		     createdOn: 1397490980837
-		 }],
-
-	      slots: [
-		  {date: "14-11-13", time: "10:00pm", available: true},
-		  {date: "14-11-13", time: "11:00pm", available: true},
-		  {date: "14-11-13", time: "12:00n", available: false},
-		  {date: "14-11-13", time: "1:00pm", available: true},
-		  {date: "14-11-13", time: "2:00pm", available:false}
-	      ],	   
-
-	      cutz: [
-		  {name:"Tap Up", price:"5000"},
-		  {name:"Normal Cut", price:"1500"},
-		  {name:"Fade", price:"1000"},
-		  {name:"Eye Brows", price:"500"}
-	      ],
-          },
-	  
-          { 
-	      fname: 'John',
+              fname: 'Kimmy',
               lname: 'Doe',
-	      avatar: '../img/barber2.jpg',
-              shop_name: 'Family Barber',
-	      address: '123 Street Ave.',
-	      city: 'Seattle',
+	      
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+              avatar:'http://api.randomuser.me/portraits/women/55.jpg',
+              shop_name: 'Rudy\'s Barbership',
+	      address: '16095 Cleveland St',
+	      city: 'Redmond, WA 98052',
 	      state:'WA',
 	      zip: '98052',
 	      rating: '5',
-
-	        reviews: [{
-		  stars: 1,
-		  body: "Buddy can't cut bo.",
-		  author: "turtleguyy@example.org",
+	      reviews: [{
+		  stars: 5,
+		  body: "Kimmy does a great consistent job each time at a much cheaper price than the stylists",
+		  author: "turtleguyy@gmail.com",
 		  createdOn: 1397490980837
 	      },
-		 {
-		     stars: 5,
-		     body: "Real talk. He da truth.",
-		     author: "LouisW407@example.org",
-		     createdOn: 1397490980837
-		 }, {
-		     stars: 2,
-		     body: "Don't waste your money bruh!",
-		     author: "nat@example.org",
-		     createdOn: 1397490980837
-		 }]	      
+			{
+			    stars: 5,
+			    body: "I am more than happy with my new hairstyle from Kimmy, she did an amzing job.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 5,
+			    body: "This is why I make the drive all the way from OLYMPIA because I know Kimmy will always take care of me",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
+          },
 
+
+	            { 
+              fname: 'Kimmy',
+              lname: 'Doe',
+	      
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+              avatar:'http://api.randomuser.me/portraits/women/55.jpg',
+              shop_name: 'Rudy\'s Barbership',
+	      address: '16095 Cleveland St',
+	      city: 'Redmond, WA 98052',
+	      state:'WA',
+	      zip: '98052',
+	      rating: '5',
+	      reviews: [{
+		  stars: 5,
+		  body: "Kimmy does a great consistent job each time at a much cheaper price than the stylists",
+		  author: "turtleguyy@gmail.com",
+		  createdOn: 1397490980837
+	      },
+			{
+			    stars: 5,
+			    body: "I am more than happy with my new hairstyle from Kimmy, she did an amzing job.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 5,
+			    body: "This is why I make the drive all the way from OLYMPIA because I know Kimmy will always take care of me",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
           },
 
           { 
+	      fname: 'Mike',
+              lname: 'Brown',
+	      thumb: 'http://api.randomuser.me/portraits/thumb/men/52.jpg',
+              avatar:'http://api.randomuser.me/portraits/men/52.jpg',
+              shop_name: 'Hill\'s Barbershop',
+	      address: '8147 161st Ave NE',
+	      city: 'Redmond',
+	      state:'WA',
+	      zip: '98052',
+	      rating: '4',
+
+	      reviews: [{
+		  stars: 4,
+		  body: "Very comfortable environment for guys.",
+		  author: "ananda@gmail.com",
+		  createdOn: 1397490980837
+	      },
+			{
+			    stars: 4,
+			    body: "Real talk. He da truth.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 4,
+			    body: "Moved away from Redmond but still make the drive to see Young every 4 weeks. I can't say enough nice things about his work. Also, just a great all around nice guy who I look forward to chatting with every 4 weeks. 5 stars! You will not be dissapointed.",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
+
+          },
+
+
+	            { 
+              fname: 'Kimmy',
+              lname: 'Doe',
+	      
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+              avatar:'http://api.randomuser.me/portraits/women/55.jpg',
+              shop_name: 'Rudy\'s Barbership',
+	      address: '16095 Cleveland St',
+	      city: 'Redmond, WA 98052',
+	      state:'WA',
+	      zip: '98052',
+	      rating: '5',
+	      reviews: [{
+		  stars: 5,
+		  body: "Kimmy does a great consistent job each time at a much cheaper price than the stylists",
+		  author: "turtleguyy@gmail.com",
+		  createdOn: 1397490980837
+	      },
+			{
+			    stars: 5,
+			    body: "I am more than happy with my new hairstyle from Kimmy, she did an amzing job.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 5,
+			    body: "This is why I make the drive all the way from OLYMPIA because I know Kimmy will always take care of me",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
+          },
+
+	            { 
+              fname: 'Kimmy',
+              lname: 'Doe',
+	      
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+              avatar:'http://api.randomuser.me/portraits/women/55.jpg',
+              shop_name: 'Rudy\'s Barbership',
+	      address: '16095 Cleveland St',
+	      city: 'Redmond, WA 98052',
+	      state:'WA',
+	      zip: '98052',
+	      rating: '5',
+	      reviews: [{
+		  stars: 5,
+		  body: "Kimmy does a great consistent job each time at a much cheaper price than the stylists",
+		  author: "turtleguyy@gmail.com",
+		  createdOn: 1397490980837
+	      },
+			{
+			    stars: 5,
+			    body: "I am more than happy with my new hairstyle from Kimmy, she did an amzing job.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 5,
+			    body: "This is why I make the drive all the way from OLYMPIA because I know Kimmy will always take care of me",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
+          },
+
+	            { 
+              fname: 'Kimmy',
+              lname: 'Doe',
+	      
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+              avatar:'http://api.randomuser.me/portraits/women/55.jpg',
+              shop_name: 'Rudy\'s Barbership',
+	      address: '16095 Cleveland St',
+	      city: 'Redmond, WA 98052',
+	      state:'WA',
+	      zip: '98052',
+	      rating: '5',
+	      reviews: [{
+		  stars: 5,
+		  body: "Kimmy does a great consistent job each time at a much cheaper price than the stylists",
+		  author: "turtleguyy@gmail.com",
+		  createdOn: 1397490980837
+	      },
+			{
+			    stars: 5,
+			    body: "I am more than happy with my new hairstyle from Kimmy, she did an amzing job.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 5,
+			    body: "This is why I make the drive all the way from OLYMPIA because I know Kimmy will always take care of me",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
+          },
+
+	            { 
+              fname: 'Kimmy',
+              lname: 'Doe',
+	      
+	      thumb: 'http://api.randomuser.me/portraits/thumb/women/55.jpg',
+              avatar:'http://api.randomuser.me/portraits/women/55.jpg',
+              shop_name: 'Rudy\'s Barbership',
+	      address: '16095 Cleveland St',
+	      city: 'Redmond, WA 98052',
+	      state:'WA',
+	      zip: '98052',
+	      rating: '5',
+	      reviews: [{
+		  stars: 5,
+		  body: "Kimmy does a great consistent job each time at a much cheaper price than the stylists",
+		  author: "turtleguyy@gmail.com",
+		  createdOn: 1397490980837
+	      },
+			{
+			    stars: 5,
+			    body: "I am more than happy with my new hairstyle from Kimmy, she did an amzing job.",
+			    author: "LouisW407@gmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 5,
+			    body: "This is why I make the drive all the way from OLYMPIA because I know Kimmy will always take care of me",
+			    author: "nat@gmail.com",
+			    createdOn: 1397490980837
+			}]      
+          },
+
+
+
+          { 
 	      fname: 'John',
-              lname: 'Foe',
-	      avatar: '../img/barber3.jpg',
+              lname: 'Doe',
+	      thumb: 'http://api.randomuser.me/portraits/thumb/men/40.jpg',
+              avatar:'http://api.randomuser.me/portraits/men/40.jpg',
               shop_name: 'True',
 	      address: '123 Street Ave.',
 	      city: 'Cleveland',
 	      state:'OH',
 	      zip: '44106',
-	      rating: '2',
+	      rating: '1',
 
-	        reviews: [{
+	      reviews: [{
 		  stars: 1,
 		  body: "This gem is WAY too expensive for its rarity value.",
-		  author: "turtleguyy@example.org",
+		  author: "turtleguyy@yahoo.com",
 		  createdOn: 1397490980837
 	      },
-		 {
-		     stars: 1,
-		     body: "BBW: High Shine != High Quality.",
-		     author: "LouisW407@example.org",
-		     createdOn: 1397490980837
-		 }, {
-		     stars: 1,
-		     body: "Don't waste your rubles!",
-		     author: "nat@example.org",
-		     createdOn: 1397490980837
-		 }]	      
+			{
+			    stars: 1,
+			    body: "BBW: High Shine != High Quality.",
+			    author: "LouisW407@hotmail.com",
+			    createdOn: 1397490980837
+			}, {
+			    stars: 1,
+			    body: "Don't waste your rubles!",
+			    author: "nat@hotmail.com",
+			    createdOn: 1397490980837
+			}]      
           }
-      ]; 
+      ];
+      
+
+      
       
       return data;
   });
