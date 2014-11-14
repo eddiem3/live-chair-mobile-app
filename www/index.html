@@ -222,7 +222,7 @@
       
       <button ng-repeat="option in options track by $index" ng-click="showCutz()">{{option.time}}</button>
       <p ng-show="!options.length">No available appointments for this day</p>
-      <li ng-repeat="cut in cutz" ng-show="displayCutz">{{cut.name}}</li>
+      <li ng-repeat="cut in cutz" ng-show="displayCutz && options.length">{{cut.name}}</li>
 
     </ons-page>
   </ons-template>
