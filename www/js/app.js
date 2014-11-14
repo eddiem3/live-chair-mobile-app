@@ -58,28 +58,28 @@
 
     module.controller('AppointmentController', function($scope, $data, $filter) {
 	$scope.barber = $data.selectedItem; //curent barber
-	$scope.options = {}; //options for appointments
-	$scope.day = "";
+	$scope.options = []; //options for appointments
+	//$scope.day = "";
 	
 	$scope.onTimeSet = function(date) {
 
-	    $scope.day = $filter('date')(date, "yyyy-MM-dd");
-	    alert($scope.day);
-
+	    //alert(typeof(moment(date).format("YY-MM-DD")));
+	    var day = moment(date).format("YY-MM-DD");
 	    
-
 	    //Loop through each available appointment
 	    //If the day selected on the calendar is a day in the list of appointments
 	    //add that day to the options array
-	    //for(var i = 0; i < barber.appointments.length; i++)
-	    //{
-
-	//	console.log(appointments[i]);
-//		if barber.appointments[i][0] == $scope.day {
-//		    $scope.options.push($scope.day);
-//		}
-	  //  }
-	    //console.log($scope.options);
+	    for(var i in $scope.barber.available)
+	    {
+		//alert($scope.barber.available[i].date);
+		if ($scope.barber.available[i].date === day)
+		{
+		    //alert('Im here');
+		    $scope.options.push($scope.barber.available[i]);
+		    //alert($scope.options.length);
+		}
+	    }
+	    
 	};
     });
 

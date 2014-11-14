@@ -11,6 +11,7 @@
 
   
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/moment/moment.js"></script>
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
   <!--<script type="text/javascript" src="bower_components/jquery-ui/ui/jquery.ui.datepicker.js"></script>
@@ -222,7 +223,9 @@
       <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate)">
       </datetimepicker>
       <p>Selected Date: {{ day.date | date:'yyyy-MM-dd' }}</p>
-            <p>Selected Date: {{ day.date}}</p>
+      <p>Selected Date: {{ day.date}}</p>
+      
+      <ons-button ng-repeat="option in options">{{option.time}}</ons-button>
       
     </ons-page>
   </ons-template>
