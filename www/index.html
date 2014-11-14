@@ -6,9 +6,6 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <title>My App</title>  
-
-  
-
   
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/moment/moment.js"></script>
@@ -220,7 +217,7 @@
       </ons-toolbar>      
       
 
-      <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate)">
+      <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate, oldDate)">
       </datetimepicker>
       
       <button ng-repeat="option in options track by $index">{{option.time}}</button>
