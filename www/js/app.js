@@ -67,8 +67,9 @@
 	    
 	    $scope.options = [];
 
-	    console.log(currentDate);
-	    console.log(previousDate);
+
+	    //console.log(currentDate);
+	    //console.log(previousDate);
 
 	    //alert(typeof(moment(date).format("YY-MM-DD")));
 	    var day = moment(currentDate).format("YY-MM-DD");
@@ -76,19 +77,32 @@
 	    //Loop through each available appointment
 	    //If the day selected on the calendar is a day in the list of appointments
 	    //add that day to the options array
-	    for(var i in $scope.barber.available)
+	    for(var i in $scope.barber.slots)
 	    {
 		//alert($scope.barber.available[i].date);
-		if ($scope.barber.available[i].date === day)
+		if ($scope.barber.slots[i].date === day)
 		{
-		    $scope.options.push({time:$scope.barber.available[i].time});
+		    $scope.options.push($scope.barber.slots[i]);
 		}
 	    }
 	};
 
+    
+
 	$scope.showCutz = function() {
 	    $scope.displayCutz = true;
 	};
+
+	$scope.checkFree = function(slot) {
+	    if(slot.available === true)
+	    {
+		console.log(slot);
+		return "btn btn-primary";
+	    } else {
+		console.log(slot);
+		return "btn btn-danger";
+	    }
+	}
     });
 
   module.factory('$data', function() {
@@ -123,12 +137,14 @@
 		     createdOn: 1397490980837
 		 }],
 
-	      available: [
-		  {date: "14-11-13", time: "1200"},
-		  {date: "14-11-13", time: "1300"},
-		  {date: "14-11-13", time: "1400"},
-		  {date: "14-11-13", time: "1500"}
+	      slots: [
+		  {date: "14-11-13", time: "10:00pm", available: true},
+		  {date: "14-11-13", time: "11:00pm", available: true},
+		  {date: "14-11-13", time: "12:00n", available: false},
+		  {date: "14-11-13", time: "1:00pm", available: true},
+		  {date: "14-11-13", time: "2:00pm", available:false}
 	      ],	   
+
 	      cutz: [
 		  {name:"Tap Up", price:"5000"},
 		  {name:"Normal Cut", price:"1500"},

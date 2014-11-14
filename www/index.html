@@ -11,18 +11,12 @@
   <script type="text/javascript" src="bower_components/moment/moment.js"></script>
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery.ui.core.js"></script>
-  <!--<script type="text/javascript" src="bower_components/jquery-ui/ui/jquery.ui.datepicker.js"></script>
-
-  <script src="lib/datetimepicker/jquery.datetimepicker.js"></script>
 
 
-  <!--<link rel="stylesheet" type="text/css" href="lib/datetimepicker/jquery.datetimepicker.css"/ >-->
+  <link rel="stylesheet" type="text/css" href="styles/topcoat-mobile-dark.css">
+
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
-
-  <script type="text/javascript" src="bower_components/moment/moment.js"></script>
-  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
 
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
@@ -100,6 +94,8 @@
       <ons-toolbar>
         <div class="center">Barbers</div>
       </ons-toolbar>
+      
+
 
       <ons-list ng-controller="MasterController">
         <ons-list-item modifier="chevron" class="item" ng-repeat="item in items" ng-click="showDetail($index)">
@@ -220,10 +216,17 @@
       <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate, oldDate)">
       </datetimepicker>
       
-      <button ng-repeat="option in options track by $index" ng-click="showCutz()">{{option.time}}</button>
+      <button ng-repeat="option in options track by $index" ng-click="showCutz()" class="{{checkFree(option)}}">{{option.time}}</button>
       <p ng-show="!options.length">No available appointments for this day</p>
-      <li ng-repeat="cut in cutz" ng-show="displayCutz && options.length">{{cut.name}}</li>
 
+
+
+
+      <br>
+
+      <button ng-repeat="cut in cutz" ng-show="displayCutz && options.length" type="button" class="btn btn-primary"  btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+	{{cut.name + " " + cut.price/100}} 
+      </button>
     </ons-page>
   </ons-template>
 
