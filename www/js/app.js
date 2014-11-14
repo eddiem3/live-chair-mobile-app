@@ -28,9 +28,10 @@
     $scope.item = $data.selectedItem;
       //alert($scope.item.fname)
 
-      $scope.makeAppointment = function() {
+      $scope.showAppointments = function() {
 	  $scope.ons.navigator.pushPage('appointment.html');	  
       };
+
   });
 
 		    
@@ -55,9 +56,31 @@
       };     
   });
 
-    module.controller('AppointmentController', function($scope, $data) {
+    module.controller('AppointmentController', function($scope, $data, $filter) {
+	$scope.barber = $data.selectedItem; //curent barber
+	$scope.options = {}; //options for appointments
+	$scope.day = "";
+	
+	$scope.onTimeSet = function(date) {
 
+	    $scope.day = $filter('date')(date, "yyyy-MM-dd");
+	    alert($scope.day);
 
+	    
+
+	    //Loop through each available appointment
+	    //If the day selected on the calendar is a day in the list of appointments
+	    //add that day to the options array
+	    //for(var i = 0; i < barber.appointments.length; i++)
+	    //{
+
+	//	console.log(appointments[i]);
+//		if barber.appointments[i][0] == $scope.day {
+//		    $scope.options.push($scope.day);
+//		}
+	  //  }
+	    //console.log($scope.options);
+	};
     });
 
   module.factory('$data', function() {

@@ -153,7 +153,7 @@
         </ons-list-item>
       
       
-	<ons-list-item modifier="chevron" ng-click="makeAppointment()">
+	<ons-list-item modifier="chevron" ng-click="showAppointments($index)">
 	  <ons-icon icon="fa fa-calendar" fixed-width="true" style="color: #ccc"></ons-icon>
           Schedule an appointment
 	</ons-list-item>
@@ -219,7 +219,8 @@
       </ons-toolbar>      
       
 
-      <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onDay-Set(day.date)" ></datetimepicker>
+      <datetimepicker data-ng-model="day.date" data-datetimepicker-config="{ startView:'day', minView:'day' }" data-on-set-time="onTimeSet(newDate)">
+      </datetimepicker>
       <p>Selected Date: {{ day.date | date:'yyyy-MM-dd' }}</p>
             <p>Selected Date: {{ day.date}}</p>
       
